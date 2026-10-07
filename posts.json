@@ -1,0 +1,227 @@
+[
+  {
+    "id": "k8s-troubleshooting",
+    "title": "K8s 故障排查:Pod 状态解析与常见问题诊断",
+    "date": "2026-07-20",
+    "author": "古晓锋",
+    "tags": ["Kubernetes", "运维"],
+    "summary": "K8s 运维的核心技能是故障排查——Pod 状态异常时如何快速定位问题根因。这篇记录 Pod 各种异常状态的含义、排查思路和常见故障的解决方案。",
+    "file": "posts/k8s-troubleshooting.md"
+  },
+  {
+    "id": "k8s-autoscaling",
+    "title": "K8s 弹性伸缩:HPA、VPA 与集群自动扩缩容",
+    "date": "2026-07-18",
+    "author": "古晓锋",
+    "tags": ["Kubernetes", "运维"],
+    "summary": "流量高峰时 Pod 不够用,流量低谷时 Pod 浪费资源。K8s 的弹性伸缩能力让应用根据负载自动调整副本数,这篇记录 HPA、VPA 和 Cluster Autoscaler 的工程实践。",
+    "file": "posts/k8s-autoscaling.md"
+  },
+  {
+    "id": "k8s-scheduler",
+    "title": "K8s 调度器:Pod 调度原理与节点选择策略",
+    "date": "2026-07-15",
+    "author": "古晓锋",
+    "tags": ["Kubernetes", "调度"],
+    "summary": "Pod 最终运行在哪个节点上,由 K8s 调度器决定。理解调度原理,才能控制 Pod 的分布——避免单节点资源耗尽、实现故障隔离、优化性能。",
+    "file": "posts/k8s-scheduler.md"
+  },
+  {
+    "id": "k8s-ha-cluster-centos7",
+    "title": "CentOS 7 部署 3 Master + 3 Worker 高可用 K8s 集群完整教程",
+    "date": "2026-07-12",
+    "author": "古晓锋",
+    "tags": ["Kubernetes", "高可用"],
+    "summary": "生产环境的 K8s 集群不能单 master——master 挂了整个集群就不可用。这篇记录在 CentOS 7 上部署 3 master + 3 worker 的高可用 K8s 集群完整流程。",
+    "file": "posts/k8s-ha-cluster-centos7.md"
+  },
+  {
+    "id": "jenkins-harbor-pipeline",
+    "title": "Jenkins + Harbor 流水线:自动构建镜像并更新 K8s Deployment",
+    "date": "2026-07-10",
+    "author": "古晓锋",
+    "tags": ["Jenkins", "CI/CD"],
+    "summary": "在 Web 集群部署与自动化运维项目里,最核心的能力就是 CI/CD 流水线——代码推送到 Gitee,Jenkins 自动构建 Docker 镜像,推送到 Harbor,然后自动更新 K8s Deployment。",
+    "file": "posts/jenkins-harbor-pipeline.md"
+  },
+  {
+    "id": "k8s-prometheus",
+    "title": "Prometheus 监控体系:从 Helm 部署到应用监控",
+    "date": "2026-07-05",
+    "author": "古晓锋",
+    "tags": ["Prometheus", "监控"],
+    "summary": "监控是运维的眼睛——没有监控,故障发现靠用户投诉,排查靠猜。Prometheus 是云原生时代的事实标准监控方案。",
+    "file": "posts/k8s-prometheus.md"
+  },
+  {
+    "id": "k8s-helm",
+    "title": "Helm:K8s 应用包管理的工程化实践",
+    "date": "2026-07-01",
+    "author": "古晓锋",
+    "tags": ["Kubernetes", "Helm"],
+    "summary": "手动管理一堆 YAML 文件部署复杂应用效率低下且容易出错。Helm 是 K8s 的包管理工具,把一组 YAML 模板化、参数化、版本化,实现一键部署复杂应用。",
+    "file": "posts/k8s-helm.md"
+  },
+  {
+    "id": "k8s-rbac",
+    "title": "K8s RBAC 权限控制:Role、ClusterRole 与最小权限原则",
+    "date": "2026-06-28",
+    "author": "古晓锋",
+    "tags": ["Kubernetes", "RBAC"],
+    "summary": "生产环境的 K8s 集群不能所有人都用 admin 配置——RBAC(Role-Based Access Control)是 K8s 的权限控制核心,这篇记录 Role/ClusterRole 的配置实践。",
+    "file": "posts/k8s-rbac.md"
+  },
+  {
+    "id": "k8s-volumes",
+    "title": "K8s Volumes:存储卷与数据持久化基础",
+    "date": "2026-06-20",
+    "author": "古晓锋",
+    "tags": ["Kubernetes", "存储"],
+    "summary": "Pod 是临时的,容器内数据会随容器销毁丢失。Volume 解决了这个问题,这篇记录 K8s 存储体系概览和 emptyDir 临时卷的配置与应用模式。",
+    "file": "posts/k8s-volumes.md"
+  },
+  {
+    "id": "k8s-secret",
+    "title": "K8s Secret:敏感数据管理与私有仓库认证",
+    "date": "2026-06-18",
+    "author": "古晓锋",
+    "tags": ["Kubernetes", "Secret"],
+    "summary": "ConfigMap 用于明文配置,Secret 专门用于敏感数据——密码、密钥、证书、Docker 仓库认证。记录 Secret 的创建方式、使用模式和安全加固实践。",
+    "file": "posts/k8s-secret.md"
+  },
+  {
+    "id": "k8s-configmap",
+    "title": "K8s ConfigMap:配置管理的工程化实践",
+    "date": "2026-06-15",
+    "author": "古晓锋",
+    "tags": ["Kubernetes", "ConfigMap"],
+    "summary": "应用配置和代码分离是十二要素应用的核心原则。ConfigMap 是 K8s 实现这一原则的关键资源,这篇记录四种创建方式和三种使用模式。",
+    "file": "posts/k8s-configmap.md"
+  },
+  {
+    "id": "k8s-canary-advanced",
+    "title": "K8s Canary 进阶:基于 Header 与权重的灰度发布详解",
+    "date": "2026-06-12",
+    "author": "古晓锋",
+    "tags": ["Kubernetes", "Canary"],
+    "summary": "深入两种具体的流量切分策略——基于 Header 的精确灰度和基于权重的随机灰度。两种策略各有适用场景,生产环境经常组合使用。",
+    "file": "posts/k8s-canary-advanced.md"
+  },
+  {
+    "id": "k8s-canary-release",
+    "title": "K8s Canary 金丝雀发布:基于 Header 的灰度发布实战",
+    "date": "2026-06-10",
+    "author": "古晓锋",
+    "tags": ["Kubernetes", "Canary"],
+    "summary": "金丝雀发布(Canary Release)是生产环境部署的核心策略——新版本先承接小比例流量,验证无问题后逐步扩大。这篇记录基于 nginx-ingress 的 Header 灰度发布方案。",
+    "file": "posts/k8s-canary-release.md"
+  },
+  {
+    "id": "k8s-ingress-rewrite",
+    "title": "K8s Ingress URL Rewrite:路径重写的工程化应用",
+    "date": "2026-06-05",
+    "author": "古晓锋",
+    "tags": ["Kubernetes", "Ingress"],
+    "summary": "Ingress 的 URL Rewrite 能力,让前端 URL 和后端实际路径解耦。两种典型重写场景——app-root 默认页跳转和正则路径捕获重写,以及生产环境的 URL 治理实践。",
+    "file": "posts/k8s-ingress-rewrite.md"
+  },
+  {
+    "id": "k8s-ingress-tls-auth",
+    "title": "K8s Ingress 进阶:TLS 加密与 Basic Auth 认证",
+    "date": "2026-06-01",
+    "author": "古晓锋",
+    "tags": ["Kubernetes", "Ingress"],
+    "summary": "生产环境的 Web 服务必须解决两个安全问题——传输加密和访问控制。Ingress 层做 TLS 终止和 Basic Auth 认证,让后端应用无需关心这些基础设施层面的安全机制。",
+    "file": "posts/k8s-ingress-tls-auth.md"
+  },
+  {
+    "id": "k8s-ingress-basics",
+    "title": "K8s Ingress 入门:从默认后端到基于域名的虚拟主机",
+    "date": "2026-05-28",
+    "author": "古晓锋",
+    "tags": ["Kubernetes", "Ingress"],
+    "summary": "Service 解决了集群内服务发现问题,但对外暴露服务时 NodePort 端口受限、LoadBalancer 成本高。Ingress 是 K8s 的 L7 入口,基于 HTTP 协议做流量路由。",
+    "file": "posts/k8s-ingress-basics.md"
+  },
+  {
+    "id": "k8s-service",
+    "title": "K8s Service:集群内服务的稳定访问入口",
+    "date": "2026-05-25",
+    "author": "古晓锋",
+    "tags": ["Kubernetes", "Service"],
+    "summary": "Pod 的 IP 是易变的,Service 通过 label selector 关联一组 Pod,对外提供稳定的 ClusterIP,内部做负载均衡。四种类型差异及生产环境选型实践。",
+    "file": "posts/k8s-service.md"
+  },
+  {
+    "id": "k8s-deployment-deep",
+    "title": "K8s Deployment 控制器深度解析:滚动更新、回滚与版本治理",
+    "date": "2026-05-22",
+    "author": "古晓锋",
+    "tags": ["Kubernetes", "Deployment"],
+    "summary": "深入解析 Deployment 的工作机制——ReplicaSet 与版本管理、滚动更新策略、回滚机制,以及生产环境的版本治理实践。",
+    "file": "posts/k8s-deployment-deep.md"
+  },
+  {
+    "id": "nginx-load-balancing",
+    "title": "Nginx 负载均衡实战:从反向代理到高可用架构",
+    "date": "2026-05-20",
+    "author": "古晓锋",
+    "tags": ["Nginx", "负载均衡"],
+    "summary": "从单机反向代理到多节点负载均衡的完整实践,包括 L4/L7 调度、会话保持、健康检查、Keepalived 高可用等关键配置。",
+    "file": "posts/nginx-load-balancing.md"
+  },
+  {
+    "id": "k8s-pod-lifecycle",
+    "title": "K8s Pod 生命周期:init 容器与探针的工程化应用",
+    "date": "2026-05-18",
+    "author": "古晓锋",
+    "tags": ["Kubernetes", "Pod"],
+    "summary": "Pod 生命周期管理的两个关键机制——init 容器解决启动顺序依赖,探针(liveness/readiness/startup)实现自愈与流量控制。",
+    "file": "posts/k8s-pod-lifecycle.md"
+  },
+  {
+    "id": "k8s-pod-advanced",
+    "title": "K8s Pod 高级配置:多容器、端口映射、节点选择、网络共享",
+    "date": "2026-05-15",
+    "author": "古晓锋",
+    "tags": ["Kubernetes", "Pod"],
+    "summary": "Pod 的高级配置技巧——多容器 Sidecar 模式、hostPort 端口映射、nodeSelector 节点亲和、hostNetwork 共享宿主机网络。",
+    "file": "posts/k8s-pod-advanced.md"
+  },
+  {
+    "id": "k8s-pod-management",
+    "title": "K8s Pod 管理的两种范式:自主管理 vs 控制器管理",
+    "date": "2026-05-12",
+    "author": "古晓锋",
+    "tags": ["Kubernetes", "Pod"],
+    "summary": "对比 kubectl run 直接创建 Pod 与通过 Deployment 控制器创建的区别,讲清楚为什么生产环境从不用自主管理 Pod。",
+    "file": "posts/k8s-pod-management.md"
+  },
+  {
+    "id": "k8s-resource-management",
+    "title": "K8s 资源管理:命令式 vs 声明式,运维视角的取舍",
+    "date": "2026-05-08",
+    "author": "古晓锋",
+    "tags": ["Kubernetes", "运维"],
+    "summary": "从运维场景出发,讲清楚 kubectl create(建立式)与 kubectl apply(声明式)的本质区别,以及 GitOps 工作流的核心思想。",
+    "file": "posts/k8s-resource-management.md"
+  },
+  {
+    "id": "k8s-init-flannel",
+    "title": "K8s 集群初始化与 Flannel 网络插件:从 NotReady 到 Ready",
+    "date": "2026-05-05",
+    "author": "古晓锋",
+    "tags": ["Kubernetes", "网络"],
+    "summary": "kubeadm init 集群初始化的工程含义、kubeadm join 加入 worker 节点、Flannel VXLAN 网络插件原理与部署,以及网络排错思路。",
+    "file": "posts/k8s-init-flannel.md"
+  },
+  {
+    "id": "k8s-cluster-deploy",
+    "title": "Kubernetes 集群部署全流程:从 Docker 到 cri-dockerd 的工程化落地",
+    "date": "2026-05-01",
+    "author": "古晓锋",
+    "tags": ["Kubernetes", "Docker"],
+    "summary": "把一台台裸机变成 K8s 集群的全流程记录——Docker 部署、Harbor 私有仓库、cri-dockerd 桥接 kubelet 与 Docker 的工程化要点。",
+    "file": "posts/k8s-cluster-deploy.md"
+  }
+]

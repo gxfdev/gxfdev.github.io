@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="古晓锋的个人博客 - 热爱技术，专注网络安全，享受进步">
+  <meta name="theme-color" content="#6366f1">
+  <link rel="canonical" href="https://gxfdev.github.io/">
+  <meta property="og:url" content="https://gxfdev.github.io/">
+  <meta property="og:title" content="gxfdev's Blog">
+  <meta property="og:description" content="古晓锋的个人博客 - 热爱技术，专注网络安全，享受进步">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="gxfdev Blog">
+  <meta name="author" content="古晓锋 (gxfdev)">
+  <title>gxfdev's Blog</title>
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="stylesheet" href="css/fonts/inter.css">
+  <link rel="stylesheet" href="css/fonts/noto-serif-sc.css">
+  <link rel="stylesheet" href="css/fonts/jetbrains-mono.css">
+  <link rel="stylesheet" href="css/style.css?v=20261007a">
+  <script src="js/vendor/marked.min.js" defer></script>
+  <link rel="stylesheet" href="css/vendor/github.min.css" id="hljs-light-theme">
+  <link rel="stylesheet" href="css/vendor/github-dark-dimmed.min.css" id="hljs-dark-theme" disabled>
+  <script src="js/vendor/highlight.min.js" defer></script>
+</head>
+<body>
+  <!-- 自定义鼠标光效 -->
+  <div id="cursor-glow" class="cursor-glow"></div>
+
+  <!-- 阅读进度条 -->
+  <div id="reading-progress" class="reading-progress"></div>
+
+  <!-- 导航栏 -->
+  <header class="site-header" id="site-header">
+    <div class="header-inner">
+      <a href="#/" class="site-logo">
+        <div class="logo-icon">G</div>
+        <span class="logo-text">gxfdev</span>
+      </a>
+      <nav class="site-nav" id="site-nav">
+        <a href="#/" data-nav="home">首页</a>
+        <a href="#/archives" data-nav="archives">归档</a>
+        <a href="#/tags" data-nav="tags">标签</a>
+        <a href="#/about" data-nav="about">关于</a>
+        <div class="nav-divider"></div>
+        <div class="nav-actions">
+          <button id="search-toggle" class="nav-icon-btn" title="搜索 (Ctrl+K)" aria-label="搜索">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          </button>
+          <button id="theme-toggle" class="nav-icon-btn" title="切换主题" aria-label="切换主题">
+            <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+            <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          </button>
+        </div>
+      </nav>
+      <button id="mobile-menu-toggle" class="nav-icon-btn mobile-only" aria-label="菜单">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="20" y2="18"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- 搜索面板 -->
+  <div id="search-overlay" class="search-overlay hidden">
+    <div class="search-backdrop" id="search-backdrop"></div>
+    <div class="search-container">
+      <div class="search-input-wrap">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" id="search-input" placeholder="搜索文章..." autocomplete="off">
+        <kbd class="search-kbd">ESC</kbd>
+      </div>
+      <div id="search-results" class="search-results"></div>
+    </div>
+  </div>
+
+  <!-- 主内容 -->
+  <main class="site-main">
+
+    <!-- 首页 Hero + 文章列表 -->
+    <section id="page-home" class="page">
+      <div class="hero" id="hero">
+        <canvas id="particles-canvas" class="particles-canvas"></canvas>
+        <div class="hero-aurora"></div>
+        <div class="hero-content">
+          <div class="hero-avatar-wrap">
+            <img src="assets/avatar.jpg" alt="古晓锋" class="hero-avatar">
+            <div class="hero-avatar-ring"></div>
+            <div class="hero-avatar-ring ring-2"></div>
+          </div>
+          <div class="hero-greeting">
+            <span class="wave">👋</span> Hey, I'm
+          </div>
+          <h1 class="hero-name">
+            <span class="hero-name-text" id="hero-typing"></span>
+            <span class="typing-cursor">|</span>
+          </h1>
+          <p class="hero-bio" id="hero-bio"></p>
+          <div class="hero-links">
+            <a href="#/about" class="hero-btn">
+              <span>了解更多</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+            <a href="https://github.com/gxfdev" target="_blank" rel="noopener noreferrer" class="hero-link" title="GitHub">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+            </a>
+            <a href="mailto:3450584019@qq.com" class="hero-link" title="Email">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </a>
+          </div>
+          <div class="hero-stats">
+            <div class="stat-item">
+              <span class="stat-number" data-count="25">0</span>
+              <span class="stat-label">篇文章</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+              <span class="stat-number" data-count="22">0</span>
+              <span class="stat-label">个标签</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+              <span class="stat-number" data-count="9">0</span>
+              <span class="stat-label">个项目</span>
+            </div>
+          </div>
+        </div>
+        <div class="hero-scroll-hint" id="scroll-hint">
+          <div class="scroll-mouse">
+            <div class="scroll-wheel"></div>
+          </div>
+          <span>向下滚动</span>
+        </div>
+      </div>
+      <div class="section-header animate-in">
+        <h2 class="section-title">最新文章</h2>
+        <div class="section-line"></div>
+      </div>
+      <div id="post-list" class="post-list"></div>
+      <div id="home-pagination" class="pagination-container"></div>
+    </section>
+
+    <!-- 文章详情 -->
+    <section id="page-post" class="page hidden">
+      <article class="post-detail">
+        <a href="#/" class="back-link">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+          返回首页
+        </a>
+        <header class="post-header">
+          <h1 id="post-title" class="post-title"></h1>
+          <div class="post-meta">
+            <span id="post-date" class="meta-item">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              <span></span>
+            </span>
+            <span id="post-author" class="meta-item">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              <span></span>
+            </span>
+            <span id="post-reading-time" class="meta-item">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              <span></span>
+            </span>
+            <span id="post-word-count" class="meta-item">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+              <span></span>
+            </span>
+            <span id="post-tags" class="meta-item tags"></span>
+          </div>
+        </header>
+        <div class="post-detail-inner">
+          <div class="post-detail-main">
+            <div id="toc-container" class="toc hidden"></div>
+            <div id="post-content" class="post-content"></div>
+            <nav class="post-nav">
+          <a id="prev-post" class="post-nav-item prev" href="#">
+            <span class="nav-direction">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+              上一篇
+            </span>
+            <span class="nav-title"></span>
+          </a>
+          <a id="next-post" class="post-nav-item next" href="#">
+            <span class="nav-direction">
+              下一篇
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+            </span>
+            <span class="nav-title"></span>
+          </a>
+        </nav>
+          </div>
+          <div class="post-detail-sidebar">
+            <div id="toc-sidebar" class="toc hidden"></div>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <!-- 归档 -->
+    <section id="page-archives" class="page hidden">
+      <div class="section-header">
+        <h1 class="section-title">文章归档</h1>
+        <div class="section-line"></div>
+      </div>
+      <div id="archives-list" class="archives-list"></div>
+      <div id="archive-pagination" class="pagination-container"></div>
+    </section>
+
+    <!-- 标签 -->
+    <section id="page-tags" class="page hidden">
+      <div class="section-header">
+        <h1 class="section-title">标签</h1>
+        <div class="section-line"></div>
+      </div>
+      <div id="tag-cloud" class="tag-cloud"></div>
+      <div id="tag-posts" class="tag-posts hidden">
+        <div class="tag-posts-header">
+          <a href="#/tags" class="tag-back">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+            全部标签
+          </a>
+          <h2 id="tag-posts-title" class="tag-posts-title"></h2>
+        </div>
+        <div id="tag-posts-list" class="post-list"></div>
+      </div>
+    </section>
+
+    <!-- 关于 -->
+    <section id="page-about" class="page hidden">
+      <div class="about-hero" style="background-image: url('images/about-cover.png')">
+        <div class="about-hero-overlay"></div>
+        <div class="about-hero-content">
+          <div class="about-avatar-wrap">
+            <img src="assets/avatar.jpg" alt="古晓锋" class="about-avatar-img">
+          </div>
+          <h1 class="about-name">古晓锋</h1>
+          <p class="about-subtitle">gxfdev · 网络工程 · 运维与自动化</p>
+          <div class="about-social-row">
+            <a href="https://github.com/gxfdev" target="_blank" rel="noopener noreferrer" class="social-circle" title="GitHub">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+            </a>
+            <a href="mailto:3450584019@qq.com" class="social-circle" title="Email">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="about-body">
+        <div class="about-section animate-in">
+          <h3>关于我</h3>
+          <p>嘿！我是古晓锋，广东梅州人，广东石油化工学院网络工程专业2027届在读。专注于 DevOps 与云原生运维方向，具备以下技术实践经历：</p>
+          <ul class="about-skill-list">
+            <li><strong>容器化与编排</strong>：Docker 容器化部署、Docker Compose 多服务编排、Kubernetes 集群搭建与资源调度</li>
+            <li><strong>CI/CD 流水线</strong>：Jenkins Pipeline 自动化构建与部署，实现代码提交到上线的全流程自动化</li>
+            <li><strong>负载均衡与代理</strong>：Nginx 七层反向代理、负载均衡策略配置、HTTPS 证书管理</li>
+            <li><strong>数据库运维</strong>：MySQL 主从复制架构部署、数据备份与恢复策略</li>
+            <li><strong>监控与可观测性</strong>：Prometheus 指标采集 + Grafana 可视化看板 + 告警规则配置</li>
+            <li><strong>自动化脚本</strong>：Shell / Python 编写运维自动化脚本，覆盖部署、巡检、日志分析等场景</li>
+            <li><strong>云原生</strong>：Kubernetes 集群搭建与管理、容器化应用部署、服务发现与负载均衡</li>
+            <li><strong>DevOps</strong>：DevOps 文化实践、持续交付与部署、监控与日志管理</li>
+            <li><strong>网络配置</strong>：路由器/交换机配置（VLAN、静态/动态路由、ACL、VRRP、OSPF）</li>
+          </ul>
+          <p>建这个博客，一是把项目里踩过的坑和学到的经验系统整理成笔记，方便自己复盘回顾；二是希望这些记录能帮到遇到同样问题的同学——毕竟对着终端排错的感觉，谁都不想经历第二次。写下来，下次就能少走弯路。</p>
+        </div>
+        <div class="about-section animate-in">
+          <h3>教育背景</h3>
+          <div class="edu-card">
+            <div class="edu-icon">🎓</div>
+            <div class="edu-info">
+              <div class="edu-school">广东石油化工学院</div>
+              <div class="edu-major">网络工程（本科）· 2023 - 2027</div>
+              <div class="edu-courses">主修：C语言程序设计、计算机网络、Java程序设计、数据库原理、路由交换技术、Linux网络管理、虚拟化技术</div>
+              <div class="edu-award">🏆 2024年综合奖学金二等奖 · 全国计算机等级考试二级MS Office</div>
+            </div>
+          </div>
+        </div>
+        <div class="about-section animate-in">
+          <h3>技能栈</h3>
+          <div class="skills-container">
+            <div class="skill-category">
+              <div class="skill-cat-title">编程语言</div>
+              <div class="skill-bars">
+                <div class="skill-bar-item" data-level="80"><span class="skill-name">Java</span><div class="skill-bar"><div class="skill-fill"></div></div></div>
+                <div class="skill-bar-item" data-level="78"><span class="skill-name">Shell</span><div class="skill-bar"><div class="skill-fill"></div></div></div>
+                <div class="skill-bar-item" data-level="72"><span class="skill-name">C</span><div class="skill-bar"><div class="skill-fill"></div></div></div>
+                <div class="skill-bar-item" data-level="70"><span class="skill-name">Python</span><div class="skill-bar"><div class="skill-fill"></div></div></div>
+              </div>
+            </div>
+            <div class="skill-category">
+              <div class="skill-cat-title">自动化运维</div>
+              <div class="skill-bars">
+                <div class="skill-bar-item" data-level="88"><span class="skill-name">Docker</span><div class="skill-bar"><div class="skill-fill"></div></div></div>
+                <div class="skill-bar-item" data-level="75"><span class="skill-name">Jenkins</span><div class="skill-bar"><div class="skill-fill"></div></div></div>
+                <div class="skill-bar-item" data-level="65"><span class="skill-name">K8s</span><div class="skill-bar"><div class="skill-fill"></div></div></div>
+                <div class="skill-bar-item" data-level="60"><span class="skill-name">Ansible</span><div class="skill-bar"><div class="skill-fill"></div></div></div>
+              </div>
+            </div>
+            <div class="skill-category">
+              <div class="skill-cat-title">网络 & 数据库</div>
+              <div class="skill-bars">
+                <div class="skill-bar-item" data-level="85"><span class="skill-name">TCP/IP</span><div class="skill-bar"><div class="skill-fill"></div></div></div>
+                <div class="skill-bar-item" data-level="80"><span class="skill-name">MySQL</span><div class="skill-bar"><div class="skill-fill"></div></div></div>
+                <div class="skill-bar-item" data-level="72"><span class="skill-name">Redis</span><div class="skill-bar"><div class="skill-fill"></div></div></div>
+                <div class="skill-bar-item" data-level="70"><span class="skill-name">Wireshark</span><div class="skill-bar"><div class="skill-fill"></div></div></div>
+              </div>
+            </div>
+            <div class="skill-category">
+              <div class="skill-cat-title">其他工具</div>
+              <div class="skill-tags">
+                <span class="skill-pill">Linux</span>
+                <span class="skill-pill">Nginx</span>
+                <span class="skill-pill">Prometheus</span>
+                <span class="skill-pill">Grafana</span>
+                <span class="skill-pill">Docker Compose</span>
+                <span class="skill-pill">Git</span>
+                <span class="skill-pill">VLAN/OSPF</span>
+                <span class="skill-pill">HTML/CSS/JS</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="about-section animate-in">
+          <h3>项目经历</h3>
+          <div class="project-header">
+            <span id="github-last-updated" class="github-last-updated"></span>
+            <button id="github-refresh-btn" class="github-refresh-btn" title="刷新仓库列表" aria-label="刷新">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+              <span>刷新</span>
+            </button>
+          </div>
+          <div id="project-list" class="project-list">
+            <div class="projects-loading">加载中...</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 404 -->
+    <section id="page-404" class="page hidden">
+      <div class="not-found" style="background-image: url('images/404-bg.png')">
+        <div class="not-found-overlay"></div>
+        <div class="not-found-content">
+          <div class="not-found-code">404</div>
+          <p class="not-found-text">页面走丢了</p>
+          <a href="#/" class="not-found-btn">返回首页</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 回到顶部 -->
+  <button id="back-to-top" class="back-to-top" aria-label="回到顶部">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+
+  <!-- 页脚 -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-links">
+        <a href="https://github.com/gxfdev" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <span class="footer-dot">·</span>
+        <a href="mailto:3450584019@qq.com">Email</a>
+      </div>
+      <p>&copy; 2026 古晓锋 (gxfdev) · Built with passion & static HTML</p>
+    </div>
+  </footer>
+
+  <script src="js/app.js?v=20261007a"></script>
+</body>
+</html>
